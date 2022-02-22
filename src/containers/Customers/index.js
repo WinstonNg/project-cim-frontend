@@ -1,10 +1,12 @@
 import React, {useState, useEffect } from "react";
 import PageLayout from "../../components/Layout";
 import Dialog from "../../components/Dialog";
+import Drawer from "../../components/Drawer";
 import CustomerForm from "../../components/CustomerForm";
+import CustomerDrawer from "../../components/CustomerDrawer";
 import ActionButtons from "../../components/ActionButtons";
 import { Table, Space, Tooltip, Button, Popconfirm } from "antd";
-import { EditOutlined, DeleteOutlined, WarningOutlined } from "@ant-design/icons";
+import { EyeOutlined, EditOutlined, DeleteOutlined, WarningOutlined } from "@ant-design/icons";
 import {
   getData,
   storeData,
@@ -18,6 +20,8 @@ const Customers = (props) => {
   const { title, breadcrumb } = props;
   const [customerData, setCustomerData] = useState([]);
   const [showDialog, setShowDialog] = useState(false);
+  const [showDrawer, setShowDrawer] = useState(false);
+  const [drawerData, setDrawerData] = useState();
   const [editMode, setEditMode] = useState(false);
   const [editData, setEditData] = useState();
 
@@ -35,6 +39,14 @@ const Customers = (props) => {
     fetchData();
   }, [refetch]);
 
+  // ------------------------------------------------ Drawer Event
+  const onDrawerShow = () => {
+    setShowDrawer(!showDrawer);
+  };
+
+  const onDrawerDismiss = () => {
+    setShowDrawer(!showDrawer);
+  };
 
   // ------------------------------------------------ Dialog Event
   const onDialogShow = () => {
@@ -102,6 +114,15 @@ const Customers = (props) => {
       key: "action",
       render: (record) => (
         <Space size="middle">
+          <Tooltip title="View">
+            <Button
+              icon={<EyeOutlined />}
+              onClick={() => {
+                onDrawerShow();
+                setDrawerData(record);
+              }}
+            />
+          </Tooltip>
           <Tooltip title="Edit">
             <Button
               icon={<EditOutlined />}
@@ -168,7 +189,14 @@ const Customers = (props) => {
             />
           </Dialog>
         )}
-              
+        <Drawer
+          visibility={showDrawer}
+          onClose={onDrawerDismiss}
+          drawerTitle={"Customer Profile"}
+          drawerWidth="600px"
+        >
+          <CustomerDrawer dataSource={drawerData || []} />
+        </Drawer>
       </div>
     </PageLayout>
   )
