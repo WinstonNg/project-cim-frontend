@@ -1,0 +1,14 @@
+.page-layout {
+    min-height: 100vh;
+  }
+  
+  .page-content {
+    min-height: 100vh;
+    background: #f5f5f5;
+    padding: 16px 24px;
+  }
+  
+  .ant-divider.footer-divider {
+    margin: 0px;
+  }
+  

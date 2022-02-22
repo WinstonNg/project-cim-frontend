@@ -1,0 +1,22 @@
+.ant-layout-header.page-header {
+    background-color: white;
+  }
+  
+  .header-sidemenu-btn,
+  .header-profile-btn {
+    height: 100%;
+    width: 100%;
+    font-size: 18px;
+    cursor: pointer;
+    transition: color 0.3s;
+  }
+  
+  .header-sidemenu-btn:hover,
+  .header-profile-btn:hover {
+    color: #1890ff;
+  }
+  
+  .ant-layout-header {
+    padding: 0px;
+  }
+  
