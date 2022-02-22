@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import Header from "./Pageheader";
 import SideMenu from "./Sidemenu";
 import {
-  Layout,
-  Divider,
+  Layout
 } from "antd";
 import "./styles.css";
 
@@ -36,7 +35,6 @@ const PageLayout = (props) => {
         >
         </Header>
         <Content className="page-content">{props.children}</Content>
-        <Divider className="footer-divider" />
       </Layout>
     </Layout>
   );

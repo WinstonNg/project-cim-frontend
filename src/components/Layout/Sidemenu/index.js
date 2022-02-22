@@ -9,7 +9,7 @@ import "antd/dist/antd.css";
 import "./styles.css";
 
 const Sider = (props) => {
-  const { onCollapseSider, loading } = props;
+  const { onCollapseSider } = props;
   const [openKeys] = useState(["report", "redemption-mode"]);
 
   return (
@@ -30,11 +30,11 @@ const Sider = (props) => {
         <Menu.Item
           key="/"
           icon={<DashboardOutlined />}
-          disabled={loading}
+          
         >
           <Link to="/">Dashboard</Link>
         </Menu.Item>
-        <Menu.Item key="/customer" icon={<UserOutlined />} disabled={loading}>
+        <Menu.Item key="/customer" icon={<UserOutlined />} >
           <Link to="/customer">Customers</Link>
         </Menu.Item>
       </Menu>
