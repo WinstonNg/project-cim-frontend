@@ -2,8 +2,7 @@
     background-color: white;
   }
   
-  .header-sidemenu-btn,
-  .header-profile-btn {
+  .header-sidemenu-btn {
     height: 100%;
     width: 100%;
     font-size: 18px;
@@ -11,8 +10,7 @@
     transition: color 0.3s;
   }
   
-  .header-sidemenu-btn:hover,
-  .header-profile-btn:hover {
+  .header-sidemenu-btn:hover {
     color: #1890ff;
   }
   
