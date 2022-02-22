@@ -7,9 +7,14 @@ import { successNotification } from "../utils/api-success";
 
 export const getData = (url) => {
   setAuthorizationToken();
-  
+
   const response = axios
-    .get(`${baseUrl()}/${url}`)
+    .get(`${baseUrl()}/${url}`, {
+      headers: {
+        "Access-Control-Allow-Origin" : "*",
+        "Access-Control-Allow-Methods": "GET,POST",
+      }
+    })
     .then((response) => {
       return response.data;
     })
