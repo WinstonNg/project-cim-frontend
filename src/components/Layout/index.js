@@ -8,8 +8,6 @@ import "./styles.css";
 
 
 const PageLayout = (props) => {
-  // React state variable, used to control the Sider (Open/Close)
-  const { loading } = props;
   const [collapseSider, setCollapseSider] = useState(false);
 
   const { Content, Sider } = Layout;
@@ -26,7 +24,7 @@ const PageLayout = (props) => {
         collapsed={collapseSider}
         breakpoint="lg"
       >
-        <SideMenu onCollapsedSider={collapseSider} loading={loading} />
+        <SideMenu onCollapsedSider={collapseSider} />
       </Sider>
       <Layout>
         <Header
